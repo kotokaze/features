@@ -1,0 +1,33 @@
+{
+  "name": "DevContainer Features",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
+
+  "workspaceFolder": "/ws",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/ws,type=bind,consistency=cached",
+  "runArgs": [
+    "--name",
+    "${localWorkspaceFolderBasename}"
+  ],
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "mads-hartmann.bash-ide-vscode",
+        "GitHub.copilot",
+        "GitHub.copilot-labs",
+        "GitHub.vscode-pull-request-github",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "VisualStudioExptTeam.intellicode-api-usage-examples"
+      ]
+    }
+  },
+
+  "features": {
+    "ghcr.io/devcontainers/features/docker-from-docker:1": {
+      "moby": "false"
+    }
+  },
+
+  "remoteUser": "node",
+  "postCreateCommand": "npm install -g @devcontainers/cli"
+}
